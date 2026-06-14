@@ -1,0 +1,367 @@
+/* =========================================================
+  Black Desert Scroll Intro
+  - 기존 CSS와 충돌을 줄이기 위해 bd- prefix로만 작성
+  - 이미지 경로는 아래 변수만 수정하면 됨
+========================================================= */
+:root {
+  --bd-scene-closed: url("../images/07_door_closed.webp"); /* 닫힌 양문 (시작) */
+  --bd-scene-open:   url("../images/08_door_open.webp");   /* 빈 제단 홀 */
+  --bd-scene-sword:  url("../images/09_door_open_sword.webp"); /* 칼 꽂힌 제단 */
+  --bd-gold: #d5b26d;
+  --bd-gold-light: #f2dfad;
+  --bd-orange: #ff7a1a;
+  --bd-dark: #080604;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: #080604;
+  color: #f8f1df;
+}
+
+.bd-intro {
+  position: relative;
+  height: 540vh;
+  min-height: 3200px;
+  background: var(--bd-dark);
+  isolation: isolate;
+}
+
+.bd-intro__stage {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  min-height: 640px;
+  overflow: hidden;
+  background: #050403;
+  perspective: 1600px;
+  transform-style: preserve-3d;
+}
+
+/* 세 장면 레이어 — 같은 구도의 배경을 겹쳐두고 크로스페이드 + 줌인 */
+.bd-scene {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  pointer-events: none;
+  user-select: none;
+  will-change: transform, opacity, filter;
+  backface-visibility: hidden;
+}
+
+/* z-index: sword(아래) < open < closed(맨 위, 시작 화면) */
+.bd-scene--sword {
+  z-index: 1;
+  background-image: var(--bd-scene-sword);
+  filter: brightness(0.94) contrast(1.08);
+}
+
+.bd-scene--open {
+  z-index: 2;
+  background-image: var(--bd-scene-open);
+  filter: brightness(0.9) contrast(1.08);
+}
+
+.bd-scene--closed {
+  z-index: 3;
+  background-image: var(--bd-scene-closed);
+  filter: brightness(0.92) contrast(1.1);
+}
+
+/* 칼이 꽂히는 순간 제단으로 내리꽂히는 빛기둥 */
+.bd-beam {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  z-index: 4;
+  width: clamp(60px, 7vw, 120px);
+  height: 52vh;
+  max-height: 520px;
+  margin-left: calc(clamp(60px, 7vw, 120px) / -2);
+  transform-origin: 50% 0%;
+  opacity: 0;
+  background: linear-gradient(to bottom,
+    rgba(255, 236, 196, 0) 0%,
+    rgba(255, 214, 150, 0.5) 30%,
+    rgba(255, 176, 84, 0.85) 70%,
+    rgba(255, 150, 60, 0.95) 100%);
+  filter: blur(7px);
+  mix-blend-mode: screen;
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+
+.bd-impact {
+  position: absolute;
+  left: 50%;
+  top: 52%;
+  z-index: 6;
+  width: 22vw;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0.18);
+  opacity: 0;
+  border: 1px solid rgba(255, 174, 92, 0.9);
+  box-shadow:
+    0 0 32px rgba(255, 113, 27, 0.7),
+    inset 0 0 30px rgba(255, 113, 27, 0.45);
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+
+.bd-embers {
+  position: absolute;
+  inset: 0;
+  z-index: 9;
+  overflow: hidden;
+  opacity: 0.25;
+  pointer-events: none;
+  mix-blend-mode: screen;
+}
+
+.bd-ember {
+  position: absolute;
+  bottom: -10px;
+  width: var(--size, 3px);
+  height: var(--size, 3px);
+  left: var(--left, 50%);
+  border-radius: 999px;
+  background: rgba(255, 130, 36, 0.92);
+  box-shadow: 0 0 14px rgba(255, 92, 18, 0.9);
+  animation: bdEmberRise var(--dur, 6s) linear infinite;
+  animation-delay: var(--delay, 0s);
+}
+
+@keyframes bdEmberRise {
+  0% { transform: translate3d(0, 0, 0) scale(0.4); opacity: 0; }
+  12% { opacity: 0.95; }
+  100% { transform: translate3d(var(--x, 30px), -108vh, 0) scale(1); opacity: 0; }
+}
+
+.bd-vignette {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 50% 45%, rgba(255,128,36,0.06), transparent 28%),
+    radial-gradient(circle at center, transparent 42%, rgba(0,0,0,0.74) 100%),
+    linear-gradient(to bottom, rgba(0,0,0,0.24), transparent 34%, rgba(0,0,0,0.78));
+}
+
+/* 시작 화면 안내 */
+.bd-hint {
+  position: absolute;
+  left: 50%;
+  bottom: 7vh;
+  z-index: 12;
+  transform: translateX(-50%);
+  text-align: center;
+  color: rgba(240, 214, 158, 0.92);
+  text-shadow: 0 6px 22px rgba(0,0,0,0.9);
+  pointer-events: none;
+}
+
+.bd-hint__title {
+  margin: 0;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(20px, 2.6vw, 34px);
+  letter-spacing: 0.12em;
+  color: var(--bd-gold-light);
+}
+
+.bd-hint__sub {
+  margin: 12px 0 0;
+  font-size: clamp(12px, 1.1vw, 14px);
+  letter-spacing: 0.18em;
+  color: rgba(220, 177, 101, 0.78);
+}
+
+.bd-hint__arrow {
+  display: block;
+  width: 14px;
+  height: 14px;
+  margin: 18px auto 0;
+  border-right: 2px solid rgba(218, 177, 101, 0.85);
+  border-bottom: 2px solid rgba(218, 177, 101, 0.85);
+  transform: rotate(45deg);
+  animation: bdHintArrow 1.8s ease-in-out infinite;
+}
+
+@keyframes bdHintArrow {
+  0%, 100% { transform: translateY(0) rotate(45deg); opacity: 0.5; }
+  50% { transform: translateY(8px) rotate(45deg); opacity: 1; }
+}
+
+.bd-ui--top {
+  position: absolute;
+  top: 28px;
+  right: clamp(20px, 4vw, 64px);
+  z-index: 14;
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  opacity: 0;
+  transform: translateY(-12px);
+}
+
+.bd-ui--top a,
+.bd-ui--top button {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border: 0;
+  background: transparent;
+  color: rgba(231, 197, 129, 0.88);
+  text-decoration: none;
+  font: inherit;
+  cursor: pointer;
+}
+
+.bd-ui--top button {
+  gap: 5px;
+}
+
+.bd-ui--top button span {
+  display: block;
+  width: 20px;
+  height: 1px;
+  background: currentColor;
+}
+
+.bd-brand {
+  position: absolute;
+  left: clamp(24px, 6.5vw, 120px);
+  top: 50%;
+  z-index: 13;
+  max-width: 480px;
+  transform: translateY(-46%);
+  opacity: 0;
+  color: var(--bd-gold-light);
+  text-shadow: 0 10px 30px rgba(0,0,0,0.9);
+  pointer-events: auto;
+}
+
+.bd-brand__eyebrow {
+  margin: 0 0 18px;
+  font-size: clamp(11px, 1vw, 13px);
+  letter-spacing: 0.22em;
+  color: rgba(229, 183, 99, 0.78);
+}
+
+/* 로고 이미지 */
+.bd-brand__logo {
+  margin: 0;
+  line-height: 0;
+}
+
+.bd-brand__logo img {
+  display: block;
+  width: clamp(220px, 22vw, 340px);
+  height: auto;
+  filter: drop-shadow(0 8px 26px rgba(0,0,0,0.7));
+}
+
+.bd-brand__copy {
+  margin: 26px 0 0;
+  font-size: clamp(15px, 1.15vw, 19px);
+  line-height: 1.7;
+  letter-spacing: 0.01em;
+  color: rgba(239, 211, 154, 0.9);
+}
+
+/* 입장하기 버튼 이미지 */
+.bd-brand__button {
+  display: inline-block;
+  margin-top: 30px;
+  line-height: 0;
+  text-decoration: none;
+  transition: transform 0.25s ease, filter 0.25s ease;
+  filter: drop-shadow(0 14px 36px rgba(0,0,0,0.5));
+}
+
+.bd-brand__button img {
+  display: block;
+  width: clamp(230px, 22vw, 300px);
+  height: auto;
+}
+
+.bd-brand__button:hover {
+  transform: translateY(-2px);
+  filter: drop-shadow(0 18px 44px rgba(0,0,0,0.6))
+          drop-shadow(0 0 18px rgba(255, 150, 50, 0.35));
+}
+
+.bd-brand__scroll {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-top: 22px;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  color: rgba(228, 191, 121, 0.78);
+}
+
+.bd-brand__scroll-arrow {
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-right: 1.5px solid rgba(220, 177, 101, 0.75);
+  border-bottom: 1.5px solid rgba(220, 177, 101, 0.75);
+  transform: rotate(45deg);
+  animation: bdHintArrow 1.8s ease-in-out infinite;
+}
+
+.demo-next {
+  min-height: 100vh;
+  padding: 120px 8vw;
+  background: #0b0a09;
+  color: #f8f1df;
+}
+
+.demo-next h2 {
+  margin: 0 0 16px;
+  font-size: clamp(34px, 5vw, 72px);
+}
+
+/* GSAP 미로드 / 모션최소화 시: 최종(칼 꽂힌) 장면을 정적 히어로로 표시 */
+.bd-intro.bd-no-gsap {
+  height: 100vh;
+  min-height: 640px;
+}
+.bd-intro.bd-no-gsap .bd-brand,
+.bd-intro.bd-no-gsap .bd-ui--top {
+  opacity: 1;
+}
+.bd-intro.bd-no-gsap .bd-scene--sword { opacity: 1; }
+.bd-intro.bd-no-gsap .bd-scene--open,
+.bd-intro.bd-no-gsap .bd-scene--closed,
+.bd-intro.bd-no-gsap .bd-beam,
+.bd-intro.bd-no-gsap .bd-hint {
+  opacity: 0;
+}
+
+@media (max-width: 900px) {
+  .bd-intro { min-height: 2600px; }
+  .bd-intro__stage { min-height: 600px; }
+  .bd-brand {
+    left: 24px;
+    right: 24px;
+    top: auto;
+    bottom: 84px;
+    max-width: none;
+    transform: none;
+  }
+  .bd-brand__copy { margin-top: 24px; }
+  .bd-brand__button { min-width: 210px; height: 56px; font-size: 18px; }
+  .bd-ui--top { top: 18px; right: 18px; }
+}

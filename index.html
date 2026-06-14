@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BLACK DESERT | 끝없는 모험이 시작되는 세계</title>
+  <meta name="description" content="광활한 오픈월드와 자유로운 전투, 당신만의 모험을 검은사막에서 시작하세요. THE WORLD CLASS MMORPG." />
+
+  <!-- 폰트 (Cinzel 세리프 + Pretendard 산세리프) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/common.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/renewal.css" />
+</head>
+<body class="rn">
+  <a href="#main" class="skip-link">본문 바로가기</a>
+
+  <!-- 공통 헤더 -->
+  <div data-include="header"></div>
+
+  <main id="main">
+
+    <!-- =====================================================
+         HERO — 패럴랙스 풀스크린
+         ===================================================== -->
+    <section class="rn-hero" id="hero" aria-label="검은사막 메인">
+      <!-- 분리된 레이어: 성 배경 + 기사 (마우스/스크롤 패럴랙스로 입체감) -->
+      <div class="rn-hero__scene" id="heroScene" aria-hidden="true">
+        <div class="rn-hero__bg"></div>
+        <div class="rn-hero__glow"></div>
+        <div class="rn-hero__knight"></div>
+      </div>
+      <div class="rn-hero__embers" id="heroEmbers" aria-hidden="true"></div>
+      <div class="rn-hero__vignette" aria-hidden="true"></div>
+
+      <div class="rn-hero__content" data-parallax="-0.06">
+        <h1 class="rn-hero__logo rn-glitch" style="--glitch-img:url('images/logo_01.png')" aria-label="BLACK DESERT">
+          <img src="images/logo_01.png" alt="BLACK DESERT" />
+          <span class="rn-glitch__layer" aria-hidden="true"></span>
+          <span class="rn-glitch__layer" aria-hidden="true"></span>
+        </h1>
+        <p class="rn-hero__tagline">PHOENIX : 업화의 불새</p>
+        <p class="rn-hero__sub">모험이 시작되는 곳, 당신의 전설을 준비하라.</p>
+        <div class="rn-hero__actions">
+          <a class="rn-hero__entry" href="#contents" aria-label="입장하기">
+            <img src="images/btn_entry.png" alt="입장하기" />
+          </a>
+          <!--<a class="rn-btn rn-btn--lg" href="#media">트레일러 보기 <span aria-hidden="true">▶</span></a>-->
+        </div>
+      </div>
+
+      <a class="rn-hero__scroll" href="#notice" aria-label="아래로 스크롤">
+        SCROLL <i aria-hidden="true"></i>
+      </a>
+    </section>
+
+    <!-- =====================================================
+         NOTICE — 업데이트 알림 띠
+         ===================================================== -->
+    <section class="rn-notice" id="notice" aria-label="공지사항">
+      <div class="rn-inner rn-notice__inner">
+        <span class="rn-notice__tag">NOTICE</span>
+        <div class="rn-notice__track">
+          <div class="rn-notice__list" aria-hidden="false">
+            <a href="#"><b>UPDATE</b>PHOENIX : 업화의 불새 대규모 업데이트 안내</a>
+            <a href="#"><b>EVENT</b>신규 클래스 출시 기념 7일 출석 보상</a>
+            <a href="#"><b>NEWS</b>길드 리그 시즌 4 일정 공개</a>
+            <a href="#"><b>SHOP</b>한정 코스튬 패키지 판매 시작</a>
+            <!-- 무한 스크롤용 복제 -->
+            <a href="#"><b>UPDATE</b>PHOENIX : 업화의 불새 대규모 업데이트 안내</a>
+            <a href="#"><b>EVENT</b>신규 클래스 출시 기념 7일 출석 보상</a>
+            <a href="#"><b>NEWS</b>길드 리그 시즌 4 일정 공개</a>
+            <a href="#"><b>SHOP</b>한정 코스튬 패키지 판매 시작</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         HOT CONTENTS — 카드 그리드
+         ===================================================== -->
+    <section class="rn-section rn-contents" id="contents" aria-labelledby="contentsTitle">
+      <div class="rn-inner">
+        <div class="rn-head rn-reveal">
+          <span class="rn-eyebrow">Hot Contents</span>
+          <h2 class="rn-title rn-gold-text" id="contentsTitle">지금 주목할 콘텐츠</h2>
+          <p class="rn-desc">검은사막에서 펼쳐지는 새로운 모험과 이벤트를 만나보세요.</p>
+        </div>
+
+        <div class="rn-cards">
+          <a href="content.html?id=01" class="rn-card rn-reveal" data-delay="1">
+            <span class="rn-card__img" style="background-image:url('images/contents/content-01.jpg')"></span>
+            <span class="rn-card__shade"></span>
+            <span class="rn-card__more" aria-hidden="true">↗</span>
+            <span class="rn-card__body">
+              <span class="rn-card__tag">NEW CLASS</span>
+              <span class="rn-card__title">신규 클래스 : 도사</span>
+              <span class="rn-card__date">2026.05.22 UPDATE</span>
+            </span>
+          </a>
+          <a href="content.html?id=02" class="rn-card rn-reveal" data-delay="2">
+            <span class="rn-card__img" style="background-image:url('images/contents/content-02.jpg')"></span>
+            <span class="rn-card__shade"></span>
+            <span class="rn-card__more" aria-hidden="true">↗</span>
+            <span class="rn-card__body">
+              <span class="rn-card__tag">REGION</span>
+              <span class="rn-card__title">아침의 나라 : 서울</span>
+              <span class="rn-card__date">2026.05.15 UPDATE</span>
+            </span>
+          </a>
+          <a href="content.html?id=03" class="rn-card rn-reveal" data-delay="3">
+            <span class="rn-card__img" style="background-image:url('images/contents/content-03.jpg')"></span>
+            <span class="rn-card__shade"></span>
+            <span class="rn-card__more" aria-hidden="true">↗</span>
+            <span class="rn-card__body">
+              <span class="rn-card__tag">EVENT</span>
+              <span class="rn-card__title">검은사막 FESTA</span>
+              <span class="rn-card__date">2026.05.10 UPDATE</span>
+            </span>
+          </a>
+          <a href="content.html?id=04" class="rn-card rn-reveal" data-delay="4">
+            <span class="rn-card__img" style="background-image:url('images/contents/content-04.jpg')"></span>
+            <span class="rn-card__shade"></span>
+            <span class="rn-card__more" aria-hidden="true">↗</span>
+            <span class="rn-card__body">
+              <span class="rn-card__tag">LEAGUE</span>
+              <span class="rn-card__title">길드 리그 시즌 4</span>
+              <span class="rn-card__date">2026.05.03 UPDATE</span>
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         CHOOSE YOUR CLASS — owl 스타일 중앙 캐러셀
+         ===================================================== -->
+    <section class="rn-section rn-clspage" id="class" aria-labelledby="classTitle" data-class-page>
+      <!-- 선택 클래스 배경 (JS가 갱신) -->
+      <div class="rn-clspage__bg" id="clsBg" aria-hidden="true"></div>
+      <div class="rn-inner">
+        <div class="rn-head rn-reveal" style="margin-bottom:14px">
+          <span class="rn-eyebrow">Choose Your Class</span>
+          <h2 class="rn-title rn-gold-text" id="classTitle">당신의 전장을 결정하라</h2>
+          <p class="rn-desc">저마다의 전투 방식을 가진 클래스. 당신만의 전설을 선택하세요.</p>
+        </div>
+
+        <!-- 캐러셀 (JS가 .rn-owl__track 안을 채움) -->
+        <div class="rn-owl rn-reveal" data-delay="1">
+          <div class="rn-owl__viewport">
+            <div class="rn-owl__track" id="owlTrack"></div>
+          </div>
+          <button type="button" class="rn-owl__nav rn-owl__nav--prev" id="owlPrev" aria-label="이전 클래스">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <button type="button" class="rn-owl__nav rn-owl__nav--next" id="owlNext" aria-label="다음 클래스">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="rn-owl__dots" id="owlDots" aria-hidden="true"></div>
+        </div>
+
+        <!-- 선택 클래스 상세 
+        <div class="rn-clsinfo" id="clsInfo">
+          <span class="rn-clsinfo__role" id="clsRole"></span>
+          <h3 class="rn-clsinfo__name rn-gold-text" id="clsName"></h3>
+          <span class="rn-clsinfo__en" id="clsEn"></span>
+          <p class="rn-clsinfo__desc" id="clsDesc"></p>
+          <div class="rn-clsinfo__tags" id="clsTags"></div>
+        </div>-->
+
+        <div style="text-align:center; margin-top:40px" class="rn-reveal">
+          <a href="class.html" class="rn-textlink">전체 클래스 보기 <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         CUSTOMIZING
+         ===================================================== -->
+    <section class="rn-section rn-custom" id="custom" aria-labelledby="customTitle">
+      <div class="rn-custom__bg" id="customBg" style="background-image:url('images/customizing/customizing-01.jpg')" aria-hidden="true"></div>
+      <div class="rn-inner">
+        <div class="rn-reveal">
+          <span class="rn-eyebrow rn-eyebrow--left">Character</span>
+          <h2 class="rn-title rn-gold-text" id="customTitle">나만의 캐릭터로<br />시작하는 모험</h2>
+          <p class="rn-desc">세밀한 커스터마이징으로 세상에 단 하나뿐인 당신만의 캐릭터를 완성하세요.</p>
+          <div style="margin-top:34px">
+            <a href="#" class="rn-btn rn-btn--ghost">커스터마이징 보기 <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+
+        <div class="rn-custom__thumbs rn-reveal" data-delay="1" id="customThumbs">
+          <button type="button" class="rn-custom__thumb is-active" data-bg="images/customizing/customizing-01.jpg" style="background-image:url('images/customizing/customizing-01.jpg')" aria-label="캐릭터 1"></button>
+          <button type="button" class="rn-custom__thumb" data-bg="images/customizing/customizing-02.jpg" style="background-image:url('images/customizing/customizing-02.jpg')" aria-label="캐릭터 2"></button>
+          <button type="button" class="rn-custom__thumb" data-bg="images/customizing/customizing-03.jpg" style="background-image:url('images/customizing/customizing-03.jpg')" aria-label="캐릭터 3"></button>
+          <button type="button" class="rn-custom__thumb" data-bg="images/customizing/customizing-04.jpg" style="background-image:url('images/customizing/customizing-04.jpg')" aria-label="캐릭터 4"></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         MEDIA / TRAILER
+         ===================================================== -->
+    <section class="rn-section rn-media" id="media" aria-labelledby="mediaTitle">
+      <div class="rn-inner">
+        <div class="rn-head rn-reveal">
+          <span class="rn-eyebrow">Media</span>
+          <h2 class="rn-title rn-gold-text" id="mediaTitle">검은사막의 세계를 영상으로</h2>
+        </div>
+        <button type="button" class="rn-media__frame rn-reveal" data-delay="1" id="mediaThumb" aria-label="트레일러 영상 재생">
+          <video class="rn-media__video" src="images/media/black_world_loop.mp4"
+                 autoplay muted loop playsinline preload="metadata"
+                 poster="images/media/trailer-thumb.jpg" aria-hidden="true"></video>
+          <span class="rn-media__play" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7L8 5z"/></svg>
+          </span>
+        </button>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         FINAL CTA
+         ===================================================== -->
+    <section class="rn-cta" id="final" aria-labelledby="finalTitle">
+      <div class="rn-cta__bg" aria-hidden="true"></div>
+      <div class="rn-inner">
+        <h2 class="rn-cta__title rn-gold-text rn-reveal" id="finalTitle">지금, 전설의 시작점에 서라</h2>
+        <p class="rn-cta__sub rn-reveal" data-delay="1">끝없는 성장의 자유, 그리고 전투의 쾌감</p>
+        <div class="rn-reveal" data-delay="2">
+          <a href="#" class="rn-btn rn-btn--primary rn-btn--lg">게임 시작하기 <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 공통 푸터 -->
+  <div data-include="footer"></div>
+
+  <!-- =========================================================
+       Trailer Modal
+       ========================================================= -->
+  <div class="modal" id="trailerModal" role="dialog" aria-modal="true" aria-label="트레일러 영상" aria-hidden="true">
+    <div class="modal__dim" data-close-modal></div>
+    <div class="modal__box">
+      <button type="button" class="modal__close" id="modalClose" aria-label="영상 닫기">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </button>
+      <div class="modal__video" id="modalVideo"></div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/include.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/renewal.js"></script>
+</body>
+</html>

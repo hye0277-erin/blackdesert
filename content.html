@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>콘텐츠 | BLACK DESERT</title>
+  <meta name="description" content="검은사막의 최신 콘텐츠 상세 정보" />
+
+  <!-- 폰트 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/common.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/renewal.css" />
+</head>
+<body class="rn">
+  <a href="#main" class="skip-link">본문 바로가기</a>
+
+  <!-- 공통 헤더 -->
+  <div data-include="header"></div>
+
+  <main id="main" data-content-detail>
+
+    <!-- =====================================================
+         BANNER (JS가 ?id 로 채움)
+         ===================================================== -->
+    <section class="rn-cdetail__banner" aria-label="콘텐츠 배너">
+      <div class="rn-cdetail__bg" id="cdBg" data-parallax="0.12" aria-hidden="true"></div>
+      <div class="rn-hero__embers" id="heroEmbers" aria-hidden="true"></div>
+      <div class="rn-cdetail__vignette" aria-hidden="true"></div>
+
+      <div class="rn-cdetail__banner-inner rn-inner">
+        <span class="rn-cdetail__tag" id="cdTag">CONTENT</span>
+        <h1 class="rn-cdetail__title rn-gold-text" id="cdTitle">콘텐츠</h1>
+        <div class="rn-cdetail__meta" id="cdMeta">
+          <span><b>UPDATE</b> <span id="cdDate">2026.05.22</span></span>
+          <span><b>CATEGORY</b> <span id="cdCat">콘텐츠</span></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         BODY
+         ===================================================== -->
+    <section class="rn-section">
+      <div class="rn-inner">
+        <a href="index.html#contents" class="rn-back">← 콘텐츠 목록으로</a>
+
+        <div class="rn-cdetail__body">
+          <!-- 본문 -->
+          <article class="rn-article rn-reveal" id="cdArticle">
+            <p class="rn-article__lead" id="cdLead"></p>
+            <!-- 상세 내용은 JS가 주입 -->
+          </article>
+
+          <!-- 사이드 -->
+          <aside class="rn-aside rn-reveal" data-delay="1">
+            <div class="rn-aside__box">
+              <h4>업데이트 정보</h4>
+              <div class="rn-aside__row"><span>구분</span><b id="cdAsideCat">콘텐츠</b></div>
+              <div class="rn-aside__row"><span>적용일</span><b id="cdAsideDate">2026.05.22</b></div>
+              <div class="rn-aside__row"><span>플랫폼</span><b>PC · MOBILE</b></div>
+              <div class="rn-aside__row"><span>권장 레벨</span><b id="cdAsideLv">Lv. 50+</b></div>
+            </div>
+            <div class="rn-aside__box">
+              <h4>바로가기</h4>
+              <a href="#" class="rn-btn rn-btn--primary" style="margin-bottom:12px">지금 플레이 →</a>
+              <a href="index.html#class" class="rn-btn rn-btn--ghost">클래스 보기</a>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         관련 콘텐츠 (JS가 채움)
+         ===================================================== -->
+    <section class="rn-section" style="border-top:1px solid var(--rn-line-soft)">
+      <div class="rn-inner">
+        <div class="rn-head rn-reveal">
+          <span class="rn-eyebrow">More Contents</span>
+          <h2 class="rn-title rn-gold-text">다른 콘텐츠도 살펴보세요</h2>
+        </div>
+        <div class="rn-related__grid" id="cdRelated"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 공통 푸터 -->
+  <div data-include="footer"></div>
+
+  <!-- Scripts -->
+  <script src="js/include.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/renewal.js"></script>
+</body>
+</html>

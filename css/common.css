@@ -1,0 +1,332 @@
+/* =========================================================
+   common.css  –  디자인 토큰 / 타이포그래피 / 버튼 / 공통 유틸
+   ========================================================= */
+
+/* 폰트 (CDN) */
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;600;700&family=Cinzel:wght@500;600;700&display=swap");
+
+/* ---------------------------------------------------------
+   디자인 토큰
+--------------------------------------------------------- */
+:root {
+  /* color */
+  --color-bg: #050505;
+  --color-section: #0d0c0a;
+  --color-panel: #15120f;
+  --color-panel-2: #1d1814;
+  --color-gold: #b98a45;
+  --color-gold-light: #d8b16a;
+  --color-gold-deep: #8a6531;
+  --color-text: #ffffff;
+  --color-text-sub: #b8b0a3;
+  --color-text-mute: #7d756a;
+  --color-line: rgba(255, 255, 255, 0.12);
+  --color-line-gold: rgba(216, 177, 106, 0.45);
+
+  /* gradient */
+  --grad-gold: linear-gradient(135deg, #d8b16a 0%, #b98a45 45%, #8a6531 100%);
+  /* 흰색 타이틀용 골드 그라데이션 (위=밝게 → 아래=어둡게) */
+  --grad-title: linear-gradient(180deg, #f8edbe 0%, #9e7040 100%);
+  --grad-overlay: linear-gradient(180deg, rgba(5, 5, 5, 0) 0%, rgba(5, 5, 5, 0.85) 100%);
+  --grad-overlay-strong: linear-gradient(180deg, rgba(5, 5, 5, 0.2) 0%, rgba(5, 5, 5, 0.95) 100%);
+
+  /* image fallback (이미지 미존재 시 배경 대체) */
+  --img-fallback: radial-gradient(120% 120% at 30% 20%, #2a2118 0%, #15110c 45%, #080706 100%);
+
+  /* type */
+  --font-main: "Pretendard", "Noto Sans KR", system-ui, sans-serif;
+  --font-title: "Noto Serif KR", "Pretendard", serif;
+  --font-eng: "Cinzel", "Noto Serif KR", serif;
+
+  /* layout */
+  --inner: 1440px;
+  --header-h: 80px;
+  --radius-card: 14px;
+  --radius-btn: 6px;
+  --section-space-pc: 120px;
+  --section-space-mo: 72px;
+
+  /* effect */
+  --shadow-card: 0 18px 40px rgba(0, 0, 0, 0.55);
+  --shadow-gold: 0 10px 30px rgba(185, 138, 69, 0.35);
+  --ease-soft: cubic-bezier(0.22, 1, 0.36, 1);
+  --z-header: 1000;
+  --z-modal: 2000;
+}
+
+/* ---------------------------------------------------------
+   기본 타이포 / 바디
+--------------------------------------------------------- */
+body {
+  font-family: var(--font-main);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  line-height: 1.6;
+  letter-spacing: -0.01em;
+  overflow-x: hidden;
+}
+
+/* 메뉴 오픈 시 스크롤 잠금 */
+body.is-locked {
+  overflow: hidden;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-title);
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+}
+
+/* 영문 라벨 / 섹션 영문 타이틀 */
+.eng {
+  font-family: var(--font-eng);
+  letter-spacing: 0.18em;
+}
+
+/* ---------------------------------------------------------
+   접근성 유틸
+--------------------------------------------------------- */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+.skip-link {
+  position: absolute;
+  left: 50%;
+  top: -100px;
+  transform: translateX(-50%);
+  z-index: calc(var(--z-modal) + 10);
+  padding: 10px 20px;
+  background: var(--color-gold);
+  color: #1a130a;
+  border-radius: 0 0 8px 8px;
+  font-weight: 700;
+  transition: top 0.25s var(--ease-soft);
+}
+.skip-link:focus {
+  top: 0;
+}
+
+/* 키보드 포커스 스타일 */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--color-gold-light);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ---------------------------------------------------------
+   레이아웃 컨테이너
+--------------------------------------------------------- */
+.inner {
+  width: 100%;
+  max-width: var(--inner);
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* 섹션 공통 */
+.section {
+  position: relative;
+  padding: var(--section-space-pc) 0;
+}
+
+.section__head {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.section__title {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  font-family: var(--font-eng);
+  font-size: 38px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  /* 텍스트 그라데이션 */
+  background: var(--grad-gold);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* 좌우 장식 화살표 이미지 */
+.section__title::before,
+.section__title::after {
+  content: "";
+  flex: none;
+  width: 96px;
+  height: 16px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+.section__title::before {
+  background-image: url("../images/common/arrow_left.png");
+}
+.section__title::after {
+  background-image: url("../images/common/arrow_right.png");
+}
+
+.section__desc {
+  margin-top: 14px;
+  color: var(--color-text-sub);
+  font-size: 15px;
+}
+
+/* ---------------------------------------------------------
+   버튼
+--------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 50px;
+  padding: 0 26px;
+  border-radius: var(--radius-btn);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  transition: transform 0.3s var(--ease-soft),
+              box-shadow 0.3s var(--ease-soft),
+              background 0.3s var(--ease-soft),
+              color 0.3s var(--ease-soft),
+              border-color 0.3s var(--ease-soft);
+}
+
+.btn .ico {
+  font-size: 14px;
+  transition: transform 0.3s var(--ease-soft);
+}
+
+.btn:hover .ico {
+  transform: translateX(4px);
+}
+
+/* primary – 골드 */
+.btn--primary {
+  background: var(--grad-gold);
+  color: #1a130a;
+  border: 1px solid transparent;
+}
+.btn--primary:hover {
+  box-shadow: var(--shadow-gold);
+  transform: translateY(-2px);
+}
+
+/* ghost – 라인 */
+.btn--ghost {
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--color-text);
+  border: 1px solid var(--color-line);
+  backdrop-filter: blur(4px);
+}
+.btn--ghost:hover {
+  border-color: var(--color-line-gold);
+  color: var(--color-gold-light);
+  transform: translateY(-2px);
+}
+
+/* large */
+.btn--lg {
+  min-height: 58px;
+  padding: 0 36px;
+  font-size: 16px;
+}
+
+/* block (모바일 full width 용) */
+.btn--block {
+  width: 100%;
+}
+
+/* ---------------------------------------------------------
+   링크형 텍스트 (전체 보기 등)
+--------------------------------------------------------- */
+.text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-text-sub);
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  transition: color 0.25s var(--ease-soft), gap 0.25s var(--ease-soft);
+}
+.text-link:hover {
+  color: var(--color-gold-light);
+  gap: 12px;
+}
+.text-link .ico {
+  font-size: 12px;
+}
+
+/* ---------------------------------------------------------
+   이미지 fallback 박스
+   (이미지가 없거나 로드 실패 시 그라데이션으로 레이아웃 유지)
+--------------------------------------------------------- */
+.media-box {
+  position: relative;
+  overflow: hidden;
+  background: var(--img-fallback);
+  background-size: cover;
+  background-position: center;
+}
+.media-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* GSAP 등장 전 초기 상태 (JS 미동작 시에도 보이도록 reveal 클래스로만 숨김) */
+.js-reveal {
+  will-change: transform, opacity;
+}
+
+/* 반응형 토큰 조정 */
+@media (max-width: 1199px) {
+  :root {
+    --header-h: 72px;
+  }
+  .inner {
+    padding: 0 32px;
+  }
+}
+
+@media (max-width: 767px) {
+  :root {
+    --header-h: 64px;
+  }
+  .inner {
+    padding: 0 20px;
+  }
+  .section {
+    padding: var(--section-space-mo) 0;
+  }
+  .section__head {
+    margin-bottom: 36px;
+  }
+  .section__title {
+    font-size: 26px;
+    gap: 12px;
+  }
+  .section__title::before,
+  .section__title::after {
+    width: 56px;
+    height: 12px;
+  }
+}

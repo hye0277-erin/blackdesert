@@ -1,0 +1,18 @@
+# Claude Code 로컬 설정/메모리
+.claude/
+
+# 압축 전 원본 영상 백업 (용량 큼)
+images/media/*_original.mp4
+
+# 옛 버전 파일
+index-1.html
+
+# OS / 에디터
+.DS_Store
+Thumbs.db
+desktop.ini
+*.log
+
+# 임시
+*.tmp
+*~

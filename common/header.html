@@ -1,0 +1,67 @@
+<!-- =========================================================
+     header.html  –  공통 헤더 (include.js 로 [data-include="header"] 위치에 삽입)
+     ========================================================= -->
+<header class="header" id="header">
+  <div class="header__inner">
+    <!-- 로고 -->
+    <a href="index.html" class="logo" aria-label="BLACK DESERT 홈으로 이동">
+      <img src="images/common/logo.png" alt="BLACK DESERT" />
+    </a>
+
+    <!-- GNB -->
+    <nav class="gnb" aria-label="주 메뉴">
+      <ul class="gnb__list">
+        <li><a href="about.html" class="gnb__link">게임 소개</a></li>
+        <li><a href="index.html#contents" class="gnb__link">콘텐츠</a></li>
+        <li><a href="class.html" class="gnb__link">클래스</a></li>
+        <li><a href="index.html#media" class="gnb__link">미디어</a></li>
+        <li><a href="news.html" class="gnb__link">새소식</a></li>
+        <li><a href="#" class="gnb__link">커뮤니티</a></li>
+      </ul>
+    </nav>
+
+    <!-- 우측 유틸 -->
+    <div class="header__util">
+      <button type="button" class="icon-btn icon-btn--search" aria-label="검색 열기">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.8"/>
+          <path d="M20 20l-3.5-3.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      </button>
+      <button type="button" class="icon-btn icon-btn--user" aria-label="로그인">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.8"/>
+          <path d="M4 20c0-3.3 3.6-6 8-6s8 2.7 8 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      </button>
+      <a href="#" class="btn btn--primary header__start">게임 시작하기</a>
+
+      <!-- 모바일 햄버거 -->
+      <button type="button" class="hamburger" id="hamburger"
+              aria-label="메뉴 열기" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- 모바일 메뉴 -->
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <nav aria-label="모바일 주 메뉴">
+    <ul class="mobile-menu__list">
+      <li class="mobile-menu__item"><a href="about.html" class="mobile-menu__link">게임 소개</a></li>
+      <li class="mobile-menu__item"><a href="class.html" class="mobile-menu__link">클래스</a></li>
+      <li class="mobile-menu__item"><a href="index.html#contents" class="mobile-menu__link">콘텐츠</a></li>
+      <li class="mobile-menu__item"><a href="index.html#media" class="mobile-menu__link">미디어</a></li>
+      <li class="mobile-menu__item"><a href="news.html" class="mobile-menu__link">새소식</a></li>
+      <li class="mobile-menu__item"><a href="#" class="mobile-menu__link">커뮤니티</a></li>
+    </ul>
+  </nav>
+  <div class="mobile-menu__bottom">
+    <a href="#" class="btn btn--primary btn--block btn--lg">게임 시작하기</a>
+    <div class="mobile-menu__util">
+      <button type="button" class="btn btn--ghost btn--block">검색</button>
+      <button type="button" class="btn btn--ghost btn--block">로그인</button>
+    </div>
+  </div>
+</div>

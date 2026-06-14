@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>새소식 글쓰기 | BLACK DESERT</title>
+  <meta name="description" content="검은사막 새소식 글쓰기" />
+
+  <!-- 폰트 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/common.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/renewal.css" />
+</head>
+<body class="rn">
+  <a href="#main" class="skip-link">본문 바로가기</a>
+
+  <!-- 공통 헤더 -->
+  <div data-include="header"></div>
+
+  <main id="main">
+
+    <!-- 상단 배너 -->
+    <section class="rn-pagehead" aria-label="새소식 글쓰기">
+      <div class="rn-pagehead__bg" aria-hidden="true"></div>
+      <div class="rn-inner">
+        <p class="rn-pagehead__eyebrow">Write</p>
+        <h1 class="rn-pagehead__title rn-gold-text">글쓰기</h1>
+      </div>
+    </section>
+
+    <section class="rn-section" style="padding-top:clamp(40px,6vh,70px)">
+      <div class="rn-inner">
+        <form class="rn-form rn-reveal" data-news-write>
+          <div class="rn-field">
+            <label for="nwCat">분류</label>
+            <select class="rn-select" id="nwCat">
+              <option value="공지">공지</option>
+              <option value="업데이트">업데이트</option>
+              <option value="이벤트">이벤트</option>
+              <option value="점검">점검</option>
+            </select>
+          </div>
+
+          <div class="rn-field">
+            <label for="nwTitle">제목</label>
+            <input class="rn-input" id="nwTitle" type="text" maxlength="80" placeholder="제목을 입력하세요" />
+          </div>
+
+          <div class="rn-field">
+            <label for="nwBody">내용</label>
+            <textarea class="rn-textarea" id="nwBody" placeholder="내용을 입력하세요. (줄바꿈 두 번으로 문단을 나눌 수 있습니다)"></textarea>
+          </div>
+
+          <p class="rn-form__error" id="nwError" role="alert"></p>
+
+          <div class="rn-form__actions">
+            <a href="news.html" class="rn-btn rn-btn--ghost">취소</a>
+            <button type="submit" class="rn-btn rn-btn--primary">등록 <span aria-hidden="true">→</span></button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 공통 푸터 -->
+  <div data-include="footer"></div>
+
+  <!-- Scripts -->
+  <script src="js/include.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/renewal.js"></script>
+</body>
+</html>
