@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
@@ -27,21 +27,37 @@
   <main id="main">
 
     <!-- =====================================================
-         CLASS 소개 — owl 스타일 중앙 캐러셀
+         SUB HERO
+         ===================================================== -->
+    <section class="rn-subhero" aria-label="클래스 소개 메인">
+      <div class="rn-subhero__bg" data-parallax="0.14" style="background-image:url('images/class/hero_bg.jpg')" aria-hidden="true"></div>
+      <div class="rn-hero__embers" id="heroEmbers" aria-hidden="true"></div>
+      <div class="rn-subhero__vignette" aria-hidden="true"></div>
+
+      <div class="rn-subhero__inner rn-inner">
+        <p class="rn-subhero__eyebrow">Choose Your Legend</p>
+        <h1 class="rn-subhero__title rn-gold-text">클래스 소개</h1>
+        <p class="rn-subhero__copy">
+          저마다의 전투 방식을 가진 8개의 클래스.<br />
+          당신의 전투 스타일에 맞는 영웅을 선택하고, 검은사막을 지배하세요.
+        </p>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         CLASS 캐러셀 + 상세
          ===================================================== -->
     <section class="rn-section rn-clspage" id="class" aria-labelledby="clsTitle" data-class-page>
-      <!-- 선택 클래스 배경 (JS가 갱신) -->
       <div class="rn-clspage__bg" id="clsBg" aria-hidden="true"></div>
-      <div class="rn-hero__embers" id="heroEmbers" aria-hidden="true"></div>
 
       <div class="rn-inner">
         <div class="rn-head rn-reveal" style="margin-bottom:14px">
           <span class="rn-eyebrow">Choose Your Class</span>
-          <h2 class="rn-title rn-gold-text" id="clsTitle">클래스 소개</h2>
-          <p class="rn-desc">저마다의 전투 방식을 가진 클래스. 당신의 전설을 선택하세요.</p>
+          <h2 class="rn-title rn-gold-text" id="clsTitle">전사를 선택하라</h2>
+          <p class="rn-desc">카드를 클릭해 클래스를 확인하세요. 각 클래스는 고유한 전투 스타일과 스킬 체계를 갖추고 있습니다.</p>
         </div>
 
-        <!-- 캐러셀 (JS가 .rn-owl__track 안을 채움) -->
+        <!-- 캐러셀 -->
         <div class="rn-owl rn-reveal" data-delay="1">
           <div class="rn-owl__viewport">
             <div class="rn-owl__track" id="owlTrack"></div>
@@ -56,7 +72,7 @@
         </div>
 
         <!-- 선택 클래스 상세 -->
-        <div class="rn-clsinfo" id="clsInfo">
+        <div class="rn-clsinfo rn-reveal" data-delay="2" id="clsInfo">
           <span class="rn-clsinfo__role" id="clsRole"></span>
           <h3 class="rn-clsinfo__name rn-gold-text" id="clsName"></h3>
           <span class="rn-clsinfo__en" id="clsEn"></span>
@@ -66,14 +82,230 @@
       </div>
     </section>
 
-    <!-- CTA -->
+    <!-- =====================================================
+         전투 스타일 소개
+         ===================================================== -->
+    <section class="cls-style" id="style" aria-labelledby="styleTitle">
+      <div class="rn-inner">
+        <div class="rn-head rn-reveal">
+          <span class="rn-eyebrow">Combat Style</span>
+          <h2 class="rn-title rn-gold-text" id="styleTitle">전투 방식의 분류</h2>
+          <p class="rn-desc">검은사막의 클래스는 역할과 거리, 전투 방식에 따라 크게 네 가지로 나뉩니다.</p>
+        </div>
+
+        <div class="cls-style__grid">
+          <!-- 근거리 전사 -->
+          <article class="cls-style__card rn-reveal" data-delay="1">
+            <div class="cls-style__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M14.5 3.5l6 6L9 21l-6 1 1-6L14.5 3.5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M12.5 5.5l6 6" stroke="currentColor" stroke-width="1.6"/></svg>
+            </div>
+            <span class="cls-style__label">Close Range</span>
+            <p class="cls-style__name">근거리 전사</p>
+            <p class="cls-style__desc">적진 한가운데에서 압도적인 일격을 선사하는 유형. 높은 체력과 방어력을 바탕으로 전선을 지탱합니다.</p>
+            <ul class="cls-style__list">
+              <li>워리어 · 가디언</li>
+              <li>높은 방어력과 CC기 보유</li>
+              <li>전선 유지 및 적 제압 특화</li>
+            </ul>
+          </article>
+
+          <!-- 원거리 저격 -->
+          <article class="cls-style__card rn-reveal" data-delay="2">
+            <div class="cls-style__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.6"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+            </div>
+            <span class="cls-style__label">Long Range</span>
+            <p class="cls-style__name">원거리 저격</p>
+            <p class="cls-style__desc">거리를 유지하며 정밀 공격으로 적을 제압하는 유형. 높은 기동성으로 안전한 위치를 선점합니다.</p>
+            <ul class="cls-style__list">
+              <li>레인저</li>
+              <li>빠른 기동과 원거리 견제</li>
+              <li>포지셔닝이 핵심인 전투 스타일</li>
+            </ul>
+          </article>
+
+          <!-- 마법 공격 -->
+          <article class="cls-style__card rn-reveal" data-delay="3">
+            <div class="cls-style__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M12 2l2.6 6.3L21 9l-5 4.4L17.5 20 12 16.5 6.5 20 8 13.4 3 9l6.4-.7L12 2Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+            </div>
+            <span class="cls-style__label">Magic</span>
+            <p class="cls-style__name">마법 공격형</p>
+            <p class="cls-style__desc">마력을 폭발적으로 방출해 광역 피해를 입히는 유형. 화려한 스킬 이펙트와 높은 순간 화력이 특징입니다.</p>
+            <ul class="cls-style__list">
+              <li>소서러 · 다크나이트</li>
+              <li>광역 폭딜 최강</li>
+              <li>어둠·마법 속성 스킬 체계</li>
+            </ul>
+          </article>
+
+          <!-- 하이브리드 변신 -->
+          <article class="cls-style__card rn-reveal" data-delay="1">
+            <div class="cls-style__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M12 3c3 2 5 5 5 9a5 5 0 11-10 0c0-1.6.6-3 1.6-4.2C9 9 11 7 12 3Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M12 14v4M10 18h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+            </div>
+            <span class="cls-style__label">Hybrid</span>
+            <p class="cls-style__name">하이브리드 · 변신형</p>
+            <p class="cls-style__desc">근거리와 원거리를 자유롭게 오가거나 특수 상태로 변신해 전장 상황에 맞게 대응하는 유형.</p>
+            <ul class="cls-style__list">
+              <li>우사 · 매구 · 하사신</li>
+              <li>상황 대응력이 최고 수준</li>
+              <li>숙련도에 따른 기량 차이 큼</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         클래스 비교표
+         ===================================================== -->
+    <section class="cls-compare" id="compare" aria-labelledby="compareTitle">
+      <div class="rn-inner">
+        <div class="rn-head rn-reveal">
+          <span class="rn-eyebrow">Class Comparison</span>
+          <h2 class="rn-title rn-gold-text" id="compareTitle">클래스 능력치 비교</h2>
+          <p class="rn-desc">각 클래스의 공격력·방어력·기동성·기술 난이도를 한눈에 비교해 보세요.</p>
+        </div>
+
+        <div class="rn-reveal" data-delay="1" style="overflow-x:auto">
+          <table class="cls-compare__table">
+            <thead>
+              <tr>
+                <th>클래스</th>
+                <th>유형</th>
+                <th style="min-width:160px">공격력</th>
+                <th style="min-width:160px">방어력</th>
+                <th style="min-width:160px">기동성</th>
+                <th>난이도</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- 워리어 -->
+              <tr>
+                <td class="cls-compare__cls">워리어</td>
+                <td>근거리</td>
+                <td><div class="cls-bar"><div class="cls-bar__track"><div class="cls-bar__fill" style="width:65%"></div></div><span class="cls-bar__val">6.5</span></div></td>
+                <td><div class="cls-bar"><div class="cls-bar__track"><div class="cls-bar__fill" style="width:90%"></div></div><span class="cls-bar__val">9.0</span></div></td>
+                <td><div class="cls-bar"><div class="cls-bar__track"><div class="cls-bar__fill" style="width:45%"></div></div><span class="cls-bar__val">4.5</span></div></td>
+                <td><span class="cls-badge cls-badge--easy">입문</span></td>
+              </tr>
+              <!-- 레인저 -->
+              <tr>
+                <td class="cls-compare__cls">레인저</td>
+                <td>원거리</td>
+                <td><div class="cls-bar"><div class="cls-bar__track"><div class="cls-bar__fill" style="width:72%"></div></div><span class="cls-bar__val">7.2</span></div></td>
+                <td><div class="cls-bar"><div class="cls-bar__track"><div class="cls-bar__fill" style="width:42%"></div></div><span class="cls-bar__val">4.2</span></div></td>
+                <td><div class="cls-bar"><div class="cls-bar__track"><div class="cls-bar__fill" style="width:85%"></div></div><span class="cls-bar__val">8.5</span></div></td>
+                <td><span class="cls-badge cls-badge--normal">보통</span></td>
+              </tr>
+              <!-- 소서러 -->
+              <tr>
+                <td class="cls-compare__cls">소서러</td>
+                <td>마법</td>
+                <td><div class="cls-bar"><div class="cls-bar__track"><div class="cls-bar__fill" style="width:88%"></div></div><span class="cls-bar__val">8.8</span></div></td>
+                <td><div class="cls-bar"><div class="cls-bar__track"><div class="cls-bar__fill" style="width:38%"></div></div><span class="cls-bar__val">3.8</span></div></td>
+                <td><div class="cls-bar"><div class="cls-bar__track"><div class="cls-bar__fill" style="width:70%"></div></div><span class="cls-bar__val">7.0</span></div></td>
+                <td><span class="cls-badge cls-badge--hard">고급</span></td>
+              </tr>
+              <!-- 우사 -->
+              <tr>
+                <td class="cls-compare__cls">우사</td>
+                <td>근거리</td>
+                <td><div class="cls-bar"><div class="cls-bar__track"><div class="cls-bar__fill" style="width:74%"></div></div><span class="cls-bar__val">7.4</span></div></td>
+                <td><div class="cls-bar"><div class="cls-bar__track"><div class="cls-bar__fill" style="width:55%"></div></div><span class="cls-bar__val">5.5</span></div></td>
+                <td><div class="cls-bar"><div class="cls-bar__track"><div class="cls-bar__fill" style="width:80%"></div></div><span class="cls-bar__val">8.0</span></div></td>
+                <td><span class="cls-badge cls-badge--normal">보통</span></td>
+              </tr>
+              <!-- 다크나이트 -->
+              <tr>
+                <td class="cls-compare__cls">다크나이트</td>
+                <td>근거리·마법</td>
+                <td><div class="cls-bar"><div class="cls-bar__track"><div class="cls-bar__fill" style="width:92%"></div></div><span class="cls-bar__val">9.2</span></div></td>
+                <td><div class="cls-bar"><div class="cls-bar__track"><div class="cls-bar__fill" style="width:44%"></div></div><span class="cls-bar__val">4.4</span></div></td>
+                <td><div class="cls-bar"><div class="cls-bar__track"><div class="cls-bar__fill" style="width:68%"></div></div><span class="cls-bar__val">6.8</span></div></td>
+                <td><span class="cls-badge cls-badge--hard">고급</span></td>
+              </tr>
+              <!-- 매구 -->
+              <tr>
+                <td class="cls-compare__cls">매구</td>
+                <td>하이브리드</td>
+                <td><div class="cls-bar"><div class="cls-bar__track"><div class="cls-bar__fill" style="width:78%"></div></div><span class="cls-bar__val">7.8</span></div></td>
+                <td><div class="cls-bar"><div class="cls-bar__track"><div class="cls-bar__fill" style="width:50%"></div></div><span class="cls-bar__val">5.0</span></div></td>
+                <td><div class="cls-bar"><div class="cls-bar__track"><div class="cls-bar__fill" style="width:77%"></div></div><span class="cls-bar__val">7.7</span></div></td>
+                <td><span class="cls-badge cls-badge--hard">고급</span></td>
+              </tr>
+              <!-- 하사신 -->
+              <tr>
+                <td class="cls-compare__cls">하사신</td>
+                <td>암살</td>
+                <td><div class="cls-bar"><div class="cls-bar__track"><div class="cls-bar__fill" style="width:82%"></div></div><span class="cls-bar__val">8.2</span></div></td>
+                <td><div class="cls-bar"><div class="cls-bar__track"><div class="cls-bar__fill" style="width:35%"></div></div><span class="cls-bar__val">3.5</span></div></td>
+                <td><div class="cls-bar"><div class="cls-bar__track"><div class="cls-bar__fill" style="width:90%"></div></div><span class="cls-bar__val">9.0</span></div></td>
+                <td><span class="cls-badge cls-badge--hard">고급</span></td>
+              </tr>
+              <!-- 가디언 -->
+              <tr>
+                <td class="cls-compare__cls">가디언</td>
+                <td>근거리</td>
+                <td><div class="cls-bar"><div class="cls-bar__track"><div class="cls-bar__fill" style="width:80%"></div></div><span class="cls-bar__val">8.0</span></div></td>
+                <td><div class="cls-bar"><div class="cls-bar__track"><div class="cls-bar__fill" style="width:88%"></div></div><span class="cls-bar__val">8.8</span></div></td>
+                <td><div class="cls-bar"><div class="cls-bar__track"><div class="cls-bar__fill" style="width:40%"></div></div><span class="cls-bar__val">4.0</span></div></td>
+                <td><span class="cls-badge cls-badge--easy">입문</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         성장 시스템 안내
+         ===================================================== -->
+    <section class="cls-growth" id="growth" aria-labelledby="growthTitle">
+      <div class="rn-inner">
+        <div class="rn-head rn-reveal">
+          <span class="rn-eyebrow">Growth System</span>
+          <h2 class="rn-title rn-gold-text" id="growthTitle">캐릭터 성장 단계</h2>
+          <p class="rn-desc">클래스를 선택한 뒤, 아래 과정을 통해 검은사막 최강의 모험가로 성장해 나가세요.</p>
+        </div>
+
+        <div class="cls-growth__steps">
+          <div class="cls-growth__step rn-reveal" data-delay="1">
+            <div class="cls-growth__num"></div>
+            <p class="cls-growth__name">클래스 선택</p>
+            <p class="cls-growth__desc">8개의 클래스 중 당신의 플레이 스타일에 맞는 클래스를 선택합니다. 신규 모험가에게는 '워리어'와 '레인저'를 추천합니다.</p>
+          </div>
+          <div class="cls-growth__step rn-reveal" data-delay="2">
+            <div class="cls-growth__num"></div>
+            <p class="cls-growth__name">스킬 숙련</p>
+            <p class="cls-growth__desc">레벨업과 함께 스킬 포인트를 획득해 원하는 스킬 트리를 완성합니다. 콤보 연계를 익혀 실전 화력을 극대화하세요.</p>
+          </div>
+          <div class="cls-growth__step rn-reveal" data-delay="3">
+            <div class="cls-growth__num"></div>
+            <p class="cls-growth__name">각성 / 전승</p>
+            <p class="cls-growth__desc">레벨 56 달성 시 각성 퀘스트를 통해 새로운 무기와 스킬을 습득합니다. 전승을 택해 원래 무기를 더욱 강화하는 길도 있습니다.</p>
+          </div>
+          <div class="cls-growth__step rn-reveal" data-delay="1">
+            <div class="cls-growth__num"></div>
+            <p class="cls-growth__name">장비 강화</p>
+            <p class="cls-growth__desc">보스 장비를 획득하고 강화 시스템으로 능력치를 끌어올립니다. 지식과 자원을 투자해 최강의 장비를 완성하세요.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         CTA
+         ===================================================== -->
     <section class="rn-cta" id="final" aria-labelledby="finalTitle">
       <div class="rn-cta__bg" aria-hidden="true"></div>
       <div class="rn-inner">
-        <h2 class="rn-cta__title rn-gold-text rn-reveal" id="finalTitle">당신의 클래스를 선택하라</h2>
-        <p class="rn-cta__sub rn-reveal" data-delay="1">지금 검은사막에서 당신만의 전설을 시작하세요.</p>
-        <div class="rn-reveal" data-delay="2">
+        <h2 class="rn-cta__title rn-gold-text rn-reveal" id="finalTitle">당신의 전설을 시작하라</h2>
+        <p class="rn-cta__sub rn-reveal" data-delay="1">클래스를 선택하고 지금 바로 검은사막의 세계에 뛰어드세요.</p>
+        <div class="rn-reveal" data-delay="2" style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap;">
           <a href="#" class="rn-btn rn-btn--primary rn-btn--lg">게임 시작하기 <span aria-hidden="true">→</span></a>
+          <a href="about.html" class="rn-btn rn-btn--lg rn-btn--ghost">게임 소개 보기</a>
         </div>
       </div>
     </section>

@@ -817,3 +817,249 @@ body.is-locked { overflow: hidden; }
   .rn-glitch__layer, .rn-glitch img { animation: none; }
   .rn-glitch__layer { opacity: 0; }
 }
+
+/* =========================================================
+   CLASS 소개 페이지 (class.html) 전용
+   ========================================================= */
+
+/* 클래스 상세 패널 — 가로 그리드형 (class.html 재정의) */
+.rn-clsinfo {
+  margin-top: 50px;
+  padding: 38px 44px;
+  background: rgba(26,18,11,0.82);
+  border: 1px solid var(--rn-line);
+  border-radius: 4px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto auto 1fr auto;
+  column-gap: 32px;
+  row-gap: 10px;
+  backdrop-filter: blur(6px);
+  transition: opacity 0.25s, transform 0.25s;
+  text-align: left;
+  max-width: none;
+  margin-inline: 0;
+  min-height: auto;
+}
+.rn-clsinfo.is-swap { opacity: 0; transform: translateY(10px); }
+.rn-clsinfo__role {
+  grid-column: 1; grid-row: 1;
+  font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--rn-gold); align-self: end;
+  display: block; padding: 0; border: none; margin-bottom: 0;
+}
+.rn-clsinfo__name {
+  grid-column: 1; grid-row: 2;
+  font-family: var(--rn-serif);
+  font-size: clamp(28px, 3.2vw, 46px);
+  font-weight: 800; line-height: 1;
+}
+.rn-clsinfo__en {
+  grid-column: 1; grid-row: 3;
+  font-family: var(--rn-serif);
+  font-size: 13px; letter-spacing: 0.3em;
+  color: var(--rn-text-dim); align-self: start;
+  text-transform: uppercase; margin-top: 0;
+}
+.rn-clsinfo__desc {
+  grid-column: 2; grid-row: 1 / 4;
+  color: var(--rn-text-dim); line-height: 1.85;
+  font-size: clamp(14px, 1.05vw, 16px);
+  align-self: center;
+  border-left: 1px solid var(--rn-line);
+  padding-left: 32px;
+  margin: 0;
+}
+.rn-clsinfo__tags {
+  grid-column: 1 / -1; grid-row: 4;
+  display: flex; flex-wrap: wrap; gap: 8px;
+  padding-top: 20px;
+  margin-top: 10px;
+  border-top: 1px solid var(--rn-line-soft);
+  justify-content: flex-start;
+}
+.rn-clsinfo__tags span {
+  padding: 5px 14px;
+  font-size: 12px; letter-spacing: 0.1em;
+  border: 1px solid var(--rn-gold-dk);
+  color: var(--rn-gold);
+  background: rgba(214,176,102,0.08);
+  border-radius: 2px;
+}
+
+/* 클래스 비교표 */
+.cls-compare {
+  padding: clamp(60px, 9vh, 130px) 0;
+  background: var(--rn-bg-2);
+  border-top: 1px solid var(--rn-line-soft);
+}
+.cls-compare__table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 44px;
+  font-size: clamp(13px, 1vw, 15px);
+}
+.cls-compare__table thead tr { border-bottom: 2px solid var(--rn-gold-dk); }
+.cls-compare__table th {
+  padding: 14px 16px;
+  font-family: var(--rn-serif);
+  font-size: 13px; letter-spacing: 0.1em;
+  text-align: left; color: var(--rn-gold); white-space: nowrap;
+}
+.cls-compare__table td {
+  padding: 14px 16px;
+  color: var(--rn-text-dim);
+  border-bottom: 1px solid var(--rn-line-soft);
+  vertical-align: middle;
+}
+.cls-compare__table tbody tr:hover td { background: rgba(214,176,102,0.05); color: var(--rn-text); }
+.cls-compare__table tbody tr:hover .cls-compare__cls { color: var(--rn-gold-lt); }
+.cls-compare__cls {
+  font-family: var(--rn-serif);
+  font-size: 15px; font-weight: 700;
+  color: var(--rn-gold); white-space: nowrap;
+}
+
+/* 스탯 바 */
+.cls-bar { display: flex; align-items: center; gap: 10px; }
+.cls-bar__track {
+  flex: 1; height: 6px;
+  background: rgba(214,176,102,0.14);
+  border-radius: 3px; overflow: hidden;
+}
+.cls-bar__fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--rn-gold-dk), var(--rn-gold));
+  border-radius: 3px;
+  transition: width 0.9s cubic-bezier(0.22,0.61,0.36,1);
+}
+.cls-bar__val { font-size: 12px; color: var(--rn-gold); width: 24px; text-align: right; flex-shrink: 0; }
+
+/* 난이도 뱃지 */
+.cls-badge { display: inline-block; padding: 3px 10px; font-size: 11px; letter-spacing: 0.08em; border-radius: 2px; }
+.cls-badge--easy   { background: rgba(60,180,90,0.16);  color: #6fdd96; border: 1px solid rgba(60,180,90,0.35); }
+.cls-badge--normal { background: rgba(214,176,102,0.14); color: var(--rn-gold); border: 1px solid var(--rn-line); }
+.cls-badge--hard   { background: rgba(220,60,60,0.15);  color: #f08080; border: 1px solid rgba(220,60,60,0.35); }
+
+/* 전투 스타일 카드 */
+.cls-style {
+  padding: clamp(60px, 9vh, 130px) 0;
+  background: var(--rn-bg);
+  border-top: 1px solid var(--rn-line-soft);
+}
+.cls-style__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+  margin-top: 52px;
+}
+.cls-style__card {
+  padding: 32px 28px 28px;
+  background: var(--rn-panel);
+  border: 1px solid var(--rn-line-soft);
+  border-radius: 4px;
+  position: relative; overflow: hidden;
+  transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+}
+.cls-style__card::before {
+  content: "";
+  position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, transparent, var(--rn-gold-dk), transparent);
+  opacity: 0; transition: opacity 0.3s;
+}
+.cls-style__card:hover {
+  border-color: var(--rn-gold-dk);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.55), 0 0 28px rgba(214,150,60,0.18);
+  transform: translateY(-4px);
+}
+.cls-style__card:hover::before { opacity: 1; }
+.cls-style__icon {
+  width: 52px; height: 52px;
+  display: flex; align-items: center; justify-content: center;
+  border: 1px solid var(--rn-gold-dk);
+  margin-bottom: 20px; color: var(--rn-gold);
+}
+.cls-style__icon svg { width: 26px; height: 26px; }
+.cls-style__label {
+  font-family: var(--rn-serif);
+  font-size: 11px; letter-spacing: 0.3em;
+  text-transform: uppercase; color: var(--rn-gold);
+  margin-bottom: 10px; display: block;
+}
+.cls-style__name {
+  font-family: var(--rn-serif);
+  font-size: 20px; font-weight: 700;
+  color: var(--rn-gold-lt); margin-bottom: 14px;
+}
+.cls-style__desc { color: var(--rn-text-dim); line-height: 1.8; font-size: 14px; }
+.cls-style__list { margin-top: 14px; padding-left: 0; list-style: none; }
+.cls-style__list li {
+  position: relative;
+  padding-left: 16px;
+  color: var(--rn-text-dim); font-size: 13px; line-height: 1.7;
+}
+.cls-style__list li::before { content: "›"; position: absolute; left: 0; color: var(--rn-gold); }
+
+/* 성장 시스템 */
+.cls-growth {
+  padding: clamp(60px, 9vh, 130px) 0;
+  background: var(--rn-bg-2);
+  border-top: 1px solid var(--rn-line-soft);
+}
+.cls-growth__steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0; margin-top: 52px; counter-reset: step;
+}
+.cls-growth__step {
+  padding: 36px 28px;
+  border: 1px solid var(--rn-line-soft);
+  border-right: none; position: relative; transition: background 0.3s;
+  text-align: center;
+}
+.cls-growth__step:last-child { border-right: 1px solid var(--rn-line-soft); }
+.cls-growth__step:hover { background: rgba(214,176,102,0.04); }
+.cls-growth__num {
+  counter-increment: step;
+  font-family: var(--rn-serif);
+  font-size: 42px; font-weight: 800;
+  background: linear-gradient(180deg, #fbeec2 0%, #e6c578 60%, #b98a3e 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  line-height: 1; margin-bottom: 16px;
+}
+.cls-growth__num::before { content: "0" counter(step); }
+.cls-growth__name {
+  font-family: var(--rn-serif);
+  font-size: 17px; font-weight: 700;
+  color: var(--rn-gold-lt); margin-bottom: 12px;
+}
+.cls-growth__desc { font-size: 14px; color: var(--rn-text-dim); line-height: 1.8; }
+
+/* class.html 반응형 */
+@media (max-width: 860px) {
+  .rn-clsinfo {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    padding: 24px 20px;
+  }
+  .rn-clsinfo__role  { grid-column: 1; grid-row: 1; }
+  .rn-clsinfo__name  { grid-column: 1; grid-row: 2; }
+  .rn-clsinfo__en    { grid-column: 1; grid-row: 3; }
+  .rn-clsinfo__desc  {
+    grid-column: 1; grid-row: 4;
+    border-left: none; padding-left: 0;
+    border-top: 1px solid var(--rn-line-soft); padding-top: 16px;
+  }
+  .rn-clsinfo__tags  { grid-column: 1; grid-row: 5; }
+  .cls-compare__table { font-size: 12px; }
+  .cls-compare__table th,
+  .cls-compare__table td { padding: 10px; }
+  .cls-growth__steps { grid-template-columns: repeat(2, 1fr); gap: 1px; }
+  .cls-growth__step { border-right: 1px solid var(--rn-line-soft); }
+}
+@media (max-width: 600px) {
+  .rn-owl__item { flex: 0 0 140px; height: 200px; }
+  .rn-owl__item.is-center { flex-basis: 210px; }
+  .cls-growth__steps { grid-template-columns: 1fr; }
+  .cls-growth__step { border-right: 1px solid var(--rn-line-soft); }
+}
